@@ -7,6 +7,9 @@
     </modules>
     <global>
         <models>
+            <osmage_mycms>
+                <class>Osmage_Mycms_Model</class>
+            </osmage_mycms>
             <cms>
                 <rewrite>
                     <wysiwyg_images_storage>Osmage_Mycms_Model_Wysiwyg_Images_Storage</wysiwyg_images_storage>
