@@ -63,9 +63,10 @@ class Networld_Catalogutils_Model_Wysiwyg_Images_Storage extends Mage_Cms_Model_
                 // had to remove the Mage_Core_Model_File_Uploader::getCorrectFileName()
                 // as it was returning the path with underscore
                 // eg: _var_www_project_magento_media_wysiwyg
-                $thumbUrl = $this->getThumbnailUrl(
-                    $item->getFilename(), 
-                    true);
+                // replaced with passing only the file name
+                $thumbPath = pathinfo($item->getFilename(), PATHINFO_DIRNAME);
+                $thumbUrl = $this->getThumbnailUrl($thumbPath . DS .  Mage_Core_Model_File_Uploader::getCorrectFileName($item->getBasename()), true);
+
                 
                 // generate thumbnail "on the fly" if it does not exists
                 if(! $thumbUrl) {
